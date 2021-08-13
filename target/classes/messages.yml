@@ -1,0 +1,6 @@
+broadcastMessage: "玩家 <player> 强化 <item> <success> ！"
+successMessage: "打造成功"
+failureMessage: "打造失败"
+lackMaterialMessage: "缺少打造材料"
+unableMakeMessage: "不可打造"
+lackEquipmentMessage: "请放置打造的装备/图纸"

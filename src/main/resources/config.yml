@@ -1,0 +1,13 @@
+commonMakeDataName: commonMakeData
+maxMakeLevel:
+Menu:
+  Title: "打造菜单"
+  GlassName: "边框"
+  GlassPaneName: "玻璃框内放装备/图纸"
+  MakeButtonName: "打造"
+KeyWord:
+  Make: "可打造"
+  AddValue: "数值变化"
+  RequireMaterial: "所需材料"
+  SuccessRate: "成功率"
+  Break: "装备损坏"

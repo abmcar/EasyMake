@@ -1,0 +1,7 @@
+name: EasyMake
+version: ${project.version}
+main: top.abmcar.easymake.EasyMake
+authors: [ abmcar ]
+description: 简单进行装备的打造
+commands:
+  easymake:
