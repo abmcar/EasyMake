@@ -10,6 +10,8 @@ public class ConfigData {
 
     private final YamlConfiguration config = ConfigUtil.loadYaml(EasyMake.getPlugin(), "config.yml");
 
+    //最大改造等级
+    public Integer MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
     //默认打造数据文件名
     public String COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
     //菜单名字
@@ -20,8 +22,6 @@ public class ConfigData {
     public String MENU_GLASS_PANE_NAME = config.getString("Menu.GlassPaneName");
     //打造按钮名字
     public String MENU_MAKE_BUTTON_NAME = config.getString("Menu.MakeButtonName");
-    //最大改造等级
-    public Integer MAX_MAKE_LEVEL = config.getInt("maxMakeLevel");
     //可打造关键字
     public String MAKE_KEYWORD = config.getString("KeyWord.Make");
     //数值变化关键字

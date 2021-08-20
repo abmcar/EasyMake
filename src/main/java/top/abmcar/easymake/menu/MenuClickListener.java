@@ -1,6 +1,7 @@
 package top.abmcar.easymake.menu;
 
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,6 +34,7 @@ public class MenuClickListener implements Listener {
         if (glassSlots.contains(event.getRawSlot()))
             event.setCancelled(true);
         if (event.getRawSlot() == MenuUtil.getMakeButtonSlot()) {
+            event.setCancelled(true);
             ItemStack equipmentItemStack = inventory.getItem(MenuUtil.getEquipmentSlot());
             if (equipmentItemStack == null) {
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.LACK_EQUIPMENT_MESSAGE);
@@ -48,7 +50,8 @@ public class MenuClickListener implements Listener {
                     return;
                 }
                 Map<String, Integer> materialRequire = EasyStringUtil.getMaterialCount(equipmentMeta);
-                if (!MenuUtil.isMaterialRequire(materialRequire, inventory)) {
+                Map<String, Integer> tempRequire = EasyStringUtil.getMaterialCount(equipmentMeta);
+                if (!MenuUtil.isMaterialRequire(tempRequire, inventory)) {
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.LACK_MATERIAL_MESSAGE);
                     return;
                 }
@@ -56,11 +59,11 @@ public class MenuClickListener implements Listener {
                 for (String nowRequire : materialRequire.keySet()) {
                     for (int i : materialSlots) {
                         ItemStack nowItemStack = inventory.getItem(i);
-                        if (nowItemStack.getType() == Material.AIR)
+                        if (nowItemStack == null)
                             continue;
                         ItemMeta itemMeta = nowItemStack.getItemMeta();
                         if (EasyStringUtil.isRequired(itemMeta, nowRequire)) {
-                            int reduceAmount = Math.max(nowItemStack.getAmount(), materialRequire.get(nowRequire));
+                            int reduceAmount = Math.min(nowItemStack.getAmount(), materialRequire.get(nowRequire));
                             nowItemStack.setAmount(nowItemStack.getAmount() - reduceAmount);
                             materialRequire.put(nowRequire, materialRequire.get(nowRequire) - reduceAmount);
                             if (materialRequire.get(nowRequire) == 0)
@@ -68,20 +71,23 @@ public class MenuClickListener implements Listener {
                         }
                     }
                 }
-                equipmentItemStack.setAmount(equipmentItemStack.getAmount() - 1);
-                if (equipmentItemStack.getAmount() == 0) {
-                    inventory.setItem(MenuUtil.getEquipmentSlot(), new ItemStack(Material.AIR));
-                } else {
-                    inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
-                }
                 ItemStack successItemStack;
-                successItemStack = equipmentItemStack;
-                successItemStack.setAmount(1);
+                successItemStack = inventory.getItem(MenuUtil.getEquipmentSlot());
+//                successItemStack.setAmount(1);
+//                equipmentItemStack.setAmount(equipmentItemStack.getAmount() - 1);
+//                inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
+//                if (inventory.getItem(MenuUtil.getEquipmentSlot()) == null) {
+//                    inventory.setItem(MenuUtil.getEquipmentSlot(), new ItemStack(Material.AIR));
+//                } else {
+//                    inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
+//                }
                 boolean isSuccess = Make.INSTANCE.isSuccess(equipmentMeta);
                 if (isSuccess) {
+                    player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 0);
                     successItemStack.setItemMeta(Make.INSTANCE.makeItem(equipmentMeta));
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.SUCCESS_MESSAGE);
                 } else {
+                    player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_BREAK, 1, 0);
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.FAILURE_MESSAGE);
                     if (EasyStringUtil.canBreak(equipmentMeta))
                         successItemStack = new ItemStack(Material.AIR);
@@ -91,7 +97,7 @@ public class MenuClickListener implements Listener {
 //                successItemStack.setItemMeta(Make.INSTANCE.makeItem(player, equipmentItemStack.getItemMeta()));
                 boolean ok = false;
                 for (int i = 0; i < inventory.getSize(); i++) {
-                    if (inventory.getItem(i).getType() == Material.AIR) {
+                    if (inventory.getItem(i) == null) {
                         ok = true;
                         inventory.setItem(i, successItemStack);
                         break;
@@ -99,6 +105,9 @@ public class MenuClickListener implements Listener {
                 }
                 if (!ok)
                     player.getInventory().addItem(successItemStack);
+                equipmentItemStack.setAmount(equipmentItemStack.getAmount() - 1);
+                inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
+                event.setCancelled(true);
             }
         }
     }

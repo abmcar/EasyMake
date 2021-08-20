@@ -1,10 +1,7 @@
 package top.abmcar.easymake.make;
 
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.ItemMeta;
 import top.abmcar.easymake.config.ConfigData;
-import top.abmcar.easymake.message.MessageData;
-import top.abmcar.easymake.message.MessageSender;
 import top.abmcar.easymake.util.EasyStringUtil;
 
 import java.util.List;
@@ -16,8 +13,8 @@ public class Make {
     public boolean isSuccess(ItemMeta itemMeta) {
         int successRate = EasyStringUtil.getSuccessRate(itemMeta);
         Random random = new Random();
-        int randomInt = random.nextInt() % 100 + 1;
-        return randomInt <= successRate;
+        int randomInt = random.nextInt(100);
+        return randomInt < successRate;
     }
 
     public boolean isBroadcast(ItemMeta itemMeta) {

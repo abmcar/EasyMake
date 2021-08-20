@@ -1,6 +1,5 @@
 package top.abmcar.easymake.util;
 
-import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -46,7 +45,7 @@ public class MenuUtil {
         for (String nowMaterial : materialRequire.keySet()) {
             for (int i : materialSlots) {
                 ItemStack itemStack = inventory.getItem(i);
-                if (itemStack.getType() == Material.AIR)
+                if (itemStack == null)
                     continue;
                 ItemMeta itemMeta = itemStack.getItemMeta();
                 if (EasyStringUtil.isRequired(itemMeta, nowMaterial)) {

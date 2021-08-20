@@ -1,135 +1,134 @@
+0:
+  MaterialRequire:
+    - "§a §7所需材料:矛盾的结晶体 * 1"
+  AddValue:
+    - "§a §7数值变化:物理伤害 + 1"
+  SuccessRate: 100
+  Broadcast: false
 1:
   MaterialRequire:
-    - "矛盾的结晶体 * 1"
+    - "§a §7所需材料:矛盾的结晶体 * 1"
   AddValue:
-    - "物理伤害 + 3"
+    - "§a §7数值变化:物理伤害 + 1"
   SuccessRate: 100
   Broadcast: false
 2:
   MaterialRequire:
-    - "矛盾的结晶体 * 2"
+    - "§a §7所需材料:矛盾的结晶体 * 2"
   AddValue:
-    - "物理伤害 + 1"
+    - "§a §7数值变化:物理伤害 + 1"
   SuccessRate: 90
   Broadcast: false
 3:
   MaterialRequire:
-    - "矛盾的结晶体 * 3"
+    - "§a §7所需材料:矛盾的结晶体 * 3"
   AddValue:
-    - "物理伤害 + 2"
+    - "§a §7数值变化:物理伤害 + 2"
   SuccessRate: 81
   Broadcast: false
 4:
   MaterialRequire:
-    - "矛盾的结晶体 * 4"
+    - "§a §7所需材料:矛盾的结晶体 * 4"
   AddValue:
-    - "物理伤害 + 2"
+    - "§a §7数值变化:物理伤害 + 2"
   SuccessRate: 73
   Broadcast: false
 5:
   MaterialRequire:
-    - "矛盾的结晶体 * 5"
+    - "§a §7所需材料:矛盾的结晶体 * 5"
   AddValue:
-    - "物理伤害 + 3"
+    - "§a §7数值变化:物理伤害 + 3"
   SuccessRate: 66
   Broadcast: false
 6:
   MaterialRequire:
-    - "矛盾的结晶体 * 6"
+    - "§a §7所需材料:矛盾的结晶体 * 6"
   AddValue:
-    - "物理伤害 + 4"
+    - "§a §7数值变化:物理伤害 + 4"
   SuccessRate: 59
   Broadcast: false
 7:
   MaterialRequire:
-    - "矛盾的结晶体 * 7"
+    - "§a §7所需材料:矛盾的结晶体 * 7"
   AddValue:
-    - "物理伤害 + 6"
+    - "§a §7数值变化:物理伤害 + 6"
   SuccessRate: 53
   Broadcast: false
 8:
   MaterialRequire:
-    - "矛盾的结晶体 * 8"
+    - "§a §7所需材料:矛盾的结晶体 * 8"
   AddValue:
-    - "物理伤害 + 8"
+    - "§a §7数值变化:物理伤害 + 8"
   SuccessRate: 48
   Broadcast: false
 9:
   MaterialRequire:
-    - "矛盾的结晶体 * 9"
+    - "§a §7所需材料:矛盾的结晶体 * 9"
   AddValue:
-    - "物理伤害 + 11"
+    - "§a §7数值变化:物理伤害 + 11"
   SuccessRate: 43
   Broadcast: false
 10:
   MaterialRequire:
     - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 10"
+    - "§a §7所需材料:矛盾的结晶体 * 10"
   AddValue:
-    - "物理伤害 + 14"
+    - "§a §7数值变化:物理伤害 + 14"
   SuccessRate: 39
   Broadcast: false
 11:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 11"
+    - "§a §7所需材料:矛盾的结晶体 * 11"
   AddValue:
-    - "物理伤害 + 19"
+    - "§a §7数值变化:物理伤害 + 19"
   SuccessRate: 35
   Broadcast: true
 12:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 12"
+    - "§a §7所需材料:矛盾的结晶体 * 12"
   AddValue:
-    - "物理伤害 + 26"
+    - "§a §7数值变化:物理伤害 + 26"
   SuccessRate: 31
   Broadcast: true
 13:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 13"
+    - "§a §7所需材料:矛盾的结晶体 * 13"
   AddValue:
-    - "物理伤害 + 26"
+    - "§a §7数值变化:物理伤害 + 26"
   SuccessRate: 28
   Broadcast: true
 14:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 14"
+    - "§a §7所需材料:矛盾的结晶体 * 14"
   AddValue:
-    - "物理伤害 + 34"
+    - "§a §7数值变化:物理伤害 + 34"
   SuccessRate: 25
   Broadcast: true
 15:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 15"
+    - "§a §7所需材料:矛盾的结晶体 * 15"
   AddValue:
-    - "物理伤害 + 61"
+    - "§a §7数值变化:物理伤害 + 61"
   SuccessRate: 23
   Broadcast: true
 16:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 16"
+    - "§a §7所需材料:矛盾的结晶体 * 16"
   AddValue:
-    - "物理伤害 + 82"
+    - "§a §7数值变化:物理伤害 + 82"
   SuccessRate: 21
   Broadcast: true
 17:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 17"
+    - "§a §7所需材料:矛盾的结晶体 * 17"
   AddValue:
-    - "物理伤害 + 110"
+    - "§a §7数值变化:物理伤害 + 110"
   SuccessRate: 19
   Broadcast: true
 18:
   MaterialRequire:
-    - "警告：增幅11及以上失败装备损坏！"
-    - "矛盾的结晶体 * 18"
+    - "§a §7所需材料:矛盾的结晶体 * 18"
   AddValue:
-    - "物理伤害 + 148"
+    - "§a §7数值变化:物理伤害 + 148"
   SuccessRate: 17
   Broadcast: true

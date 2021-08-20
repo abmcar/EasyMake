@@ -1,5 +1,5 @@
-commonMakeDataName: commonMakeData
-maxMakeLevel:
+commonMakeDataName: "commonMakeData"
+MaxMakeLevel: 20
 Menu:
   Title: "打造菜单"
   GlassName: "边框"

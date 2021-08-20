@@ -1,4 +1,4 @@
-broadcastMessage: "§b§l玩家 <player> 强化 <item> <success> ！"
+broadcastMessage: "§b§l玩家 <player> 强化 <item> §b§l<success> ！"
 successMessage: "§e打造成功"
 failureMessage: "§c打造失败"
 lackMaterialMessage: "§c缺少打造材料"
