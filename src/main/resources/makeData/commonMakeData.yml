@@ -1,9 +1,14 @@
+#0为打造等级
 0:
+  #  所需材料
   MaterialRequire:
     - "§a §7所需材料:矛盾的结晶体 * 1"
+  #  数值变化
   AddValue:
     - "§a §7数值变化:物理伤害 + 1"
+  #   成功率
   SuccessRate: 100
+  #  是否公告
   Broadcast: false
 1:
   MaterialRequire:

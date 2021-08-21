@@ -35,21 +35,21 @@
   Broadcast: false
 5:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 5"
+    - "§a §7所需材料:矛盾的结晶体 * 6"
   AddValue:
     - "§a §7数值变化:物理伤害 + 3"
   SuccessRate: 66
   Broadcast: false
 6:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 6"
+    - "§a §7所需材料:矛盾的结晶体 * 7"
   AddValue:
     - "§a §7数值变化:物理伤害 + 4"
   SuccessRate: 59
   Broadcast: false
 7:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 7"
+    - "§a §7所需材料:矛盾的结晶体 * 8"
   AddValue:
     - "§a §7数值变化:物理伤害 + 6"
   SuccessRate: 53

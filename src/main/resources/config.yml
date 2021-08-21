@@ -1,13 +1,25 @@
+#默认打造配置文件名
 commonMakeDataName: "commonMakeData"
+#打造等级上限
 MaxMakeLevel: 20
+#菜单设置
 Menu:
+  #  菜单标题
   Title: "打造菜单"
+  #  边框名字
   GlassName: "边框"
   GlassPaneName: "玻璃框内放装备/图纸"
+  #  打造按钮名字
   MakeButtonName: "打造"
+#  关键字
 KeyWord:
+  #  打造关键字
   Make: "可打造"
+  #  数值变化关键字
   AddValue: "数值变化"
+  #  所需材料关键字
   RequireMaterial: "所需材料"
+  #  成功率关键字
   SuccessRate: "成功率"
+  #  装备损坏关键字
   Break: "装备损坏"

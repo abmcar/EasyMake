@@ -45,7 +45,8 @@ public class MenuClickListener implements Listener {
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.UNABLE_MAKE_MESSAGE);
             } else {
                 //getRequireMaterial
-                if (equipmentMeta.getLore().isEmpty()) {
+                List<String> lores = equipmentMeta.getLore();
+                if (lores == null) {
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.UNABLE_MAKE_MESSAGE);
                     return;
                 }
