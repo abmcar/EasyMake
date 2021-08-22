@@ -6,6 +6,8 @@ import org.bukkit.plugin.Plugin;
 import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.util.MenuUtil;
 
+import java.util.Vector;
+
 public class MenuBuilder {
     private Plugin plugin;
     private final Inventory inventory;
@@ -16,10 +18,10 @@ public class MenuBuilder {
     }
 
     public Inventory build() {
-        int[] glass = MenuUtil.getGlass();
+        Vector<Integer> glass = MenuUtil.getGlass();
         for (int i : glass)
             inventory.setItem(i, MenuItem.INSTANCE.normalGlass);
-        int[] glassPane = MenuUtil.getGlassPane();
+        Vector<Integer> glassPane = MenuUtil.getGlassPane();
         for (int i : glassPane)
             inventory.setItem(i, MenuItem.INSTANCE.glassPane);
         inventory.setItem(MenuUtil.getMakeButtonSlot(), MenuItem.INSTANCE.makeButton);

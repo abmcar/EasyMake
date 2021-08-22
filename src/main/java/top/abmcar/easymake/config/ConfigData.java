@@ -10,7 +10,17 @@ public class ConfigData {
 
     private ConfigData() {}
 
-    private final YamlConfiguration config = ConfigUtil.loadYaml(EasyMake.getPlugin(), "config.yml");
+    private YamlConfiguration config = ConfigUtil.loadYaml(EasyMake.getPlugin(), "config.yml");
+    //菜单布局
+    public List<String> MENU_SLOTS = config.getStringList("Menu.Slots");
+
+    public YamlConfiguration getConfigYaml() {
+        return config;
+    }
+
+    public void setConfigYaml(YamlConfiguration config) {
+        this.config = config;
+    }
 
     //最大改造等级
     public Integer MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
@@ -18,8 +28,22 @@ public class ConfigData {
     public String COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
     //菜单名字
     public String MENU_NAME = config.getString("Menu.Title");
-    //菜单布局
-    public List<String> MenuSlots = config.getStringList("Menu.Slots");
+
+    public void reload() {
+        MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
+        COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
+        MENU_NAME = config.getString("Menu.Title");
+        MENU_SLOTS = config.getStringList("Menu.Slots");
+        MENU_GLASS_NAME = config.getString("Menu.GlassName");
+        MENU_GLASS_PANE_NAME = config.getString("Menu.GlassPaneName");
+        MENU_MAKE_BUTTON_NAME = config.getString("Menu.MakeButtonName");
+        MAKE_KEYWORD = config.getString("KeyWord.Make");
+        ADD_VALUE_KEYWORD = config.getString("KeyWord.AddValue");
+        REQUIRE_MATERIAL_KEYWORD = config.getString("KeyWord.RequireMaterial");
+        SUCCESS_RATE_KEYWORD = config.getString("KeyWord.SuccessRate");
+        BREAK_KEYWORD = config.getString("KeyWord.Break");
+    }
+
     //菜单边框名字
     public String MENU_GLASS_NAME = config.getString("Menu.GlassName");
     //玻璃边框名字

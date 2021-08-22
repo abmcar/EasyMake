@@ -19,6 +19,7 @@ import top.abmcar.easymake.util.MenuUtil;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 public class MenuClickListener implements Listener {
 
@@ -56,7 +57,7 @@ public class MenuClickListener implements Listener {
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.LACK_MATERIAL_MESSAGE);
                     return;
                 }
-                int[] materialSlots = MenuUtil.getMaterialSlots();
+                Vector<Integer> materialSlots = MenuUtil.getMaterialSlots();
                 for (String nowRequire : materialRequire.keySet()) {
                     for (int i : materialSlots) {
                         ItemStack nowItemStack = inventory.getItem(i);
