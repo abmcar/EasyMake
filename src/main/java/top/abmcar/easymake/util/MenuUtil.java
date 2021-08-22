@@ -72,4 +72,11 @@ public class MenuUtil {
         MenuUtil.inventoryClickEvent = inventoryClickEvent;
     }
 
+    public static void loadMenuSlots() {
+        List<String> menuSlots = ConfigData.INSTANCE.MenuSlots;
+        for (int i = 0; i < menuSlots.size(); i++) {
+
+        }
+    }
+
 }

@@ -197,6 +197,16 @@ public class EasyStringUtil {
         string = string.replace("%", "");
         string = string.replace(":", "");
         string = string.replace("+", "");
+        string = string.replace("•", "");
+        string = string.replace("°", "");
+        string = string.replace("⁜", "");
+        string = string.replace("※", "");
+        string = string.replace("⋇", "");
+        string = string.replace("⊙", "");
+        string = string.replace("⋆", "");
+        string = string.replace("⋅", "");
+        string = string.replace("☉", "");
+        string = string.replace("☪", "");
         return string;
     }
 
@@ -226,7 +236,7 @@ public class EasyStringUtil {
         String simpleString = getSimpleString(lore);
         String nowInteger = getLoreInteger(lore).toString();
         simpleString = simpleString.replace(nowInteger, "");
-        simpleString = simpleString.substring(lore.indexOf(ConfigData.INSTANCE.REQUIRE_MATERIAL_KEYWORD) + ConfigData.INSTANCE.REQUIRE_MATERIAL_KEYWORD.length());
+        simpleString = simpleString.substring(simpleString.indexOf(ConfigData.INSTANCE.REQUIRE_MATERIAL_KEYWORD) + ConfigData.INSTANCE.REQUIRE_MATERIAL_KEYWORD.length());
         return simpleString;
     }
 

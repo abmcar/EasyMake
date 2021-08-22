@@ -1,7 +1,8 @@
 name: EasyMake
-version: 1.0-SNAPSHOT
+version: 1.0.2-SNAPSHOT
 main: top.abmcar.easymake.EasyMake
 authors: [ abmcar ]
+softdepend: [EasyVar]
 description: 简单进行装备的打造
 commands:
   easymake:

@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import top.abmcar.easymake.command.EasyMakeCommand;
 import top.abmcar.easymake.config.Config;
 import top.abmcar.easymake.config.ConfigUtil;
+import top.abmcar.easymake.make.MakeData;
 import top.abmcar.easymake.menu.MenuClickListener;
 
 public final class EasyMake extends JavaPlugin {
@@ -17,6 +18,7 @@ public final class EasyMake extends JavaPlugin {
         // Plugin startup logic
         plugin = this;
         config = ConfigUtil.loadConfig(plugin, "config.yml");
+        MakeData makeData = new MakeData("commonMakeData");
         getCommand("easymake").setExecutor(new EasyMakeCommand());
         Bukkit.getPluginManager().registerEvents(new MenuClickListener(), this);
     }

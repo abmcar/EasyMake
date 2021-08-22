@@ -3,6 +3,8 @@ package top.abmcar.easymake.config;
 import org.bukkit.configuration.file.YamlConfiguration;
 import top.abmcar.easymake.EasyMake;
 
+import java.util.List;
+
 public class ConfigData {
     public static ConfigData INSTANCE = new ConfigData();
 
@@ -16,6 +18,8 @@ public class ConfigData {
     public String COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
     //菜单名字
     public String MENU_NAME = config.getString("Menu.Title");
+    //菜单布局
+    public List<String> MenuSlots = config.getStringList("Menu.Slots");
     //菜单边框名字
     public String MENU_GLASS_NAME = config.getString("Menu.GlassName");
     //玻璃边框名字
