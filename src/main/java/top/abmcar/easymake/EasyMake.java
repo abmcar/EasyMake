@@ -42,7 +42,7 @@ public final class EasyMake extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        ConfigUtil.saveFile(config);
+//        ConfigUtil.saveFile(config);
     }
 
     public static Plugin getPlugin() {
