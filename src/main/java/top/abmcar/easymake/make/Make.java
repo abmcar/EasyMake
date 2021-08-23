@@ -1,7 +1,6 @@
 package top.abmcar.easymake.make;
 
 import org.bukkit.inventory.meta.ItemMeta;
-import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.util.EasyStringUtil;
 
 import java.util.List;
@@ -38,9 +37,13 @@ public class Make {
     }
 
     public Boolean canMake(ItemMeta itemMeta) {
-        if (!EasyStringUtil.hasMakeWord(itemMeta))
-            return false;
-        return EasyStringUtil.getMakeLevel(itemMeta) <= ConfigData.INSTANCE.MAX_MAKE_LEVEL;
+        return EasyStringUtil.hasMakeWord(itemMeta);
+    }
+
+    public Boolean isMaxMake(ItemMeta itemMeta) {
+        MakeData makeData = new MakeData(EasyStringUtil.getSimpleDisplayName(itemMeta));
+        int nowLevel = EasyStringUtil.getMakeLevel(itemMeta);
+        return nowLevel <= makeData.getMaxMakeLevel();
     }
 
     public ItemMeta makeItem(ItemMeta itemMeta) {

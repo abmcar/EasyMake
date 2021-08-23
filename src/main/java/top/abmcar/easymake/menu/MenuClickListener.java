@@ -45,7 +45,10 @@ public class MenuClickListener implements Listener {
             if (!Make.INSTANCE.canMake(equipmentItemStack.getItemMeta())) {
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.UNABLE_MAKE_MESSAGE);
             } else {
-                //getRequireMaterial
+                if (!Make.INSTANCE.isMaxMake(equipmentMeta)) {
+                    MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.MAX_MAKE_LEVEL);
+                    return;
+                }
                 List<String> lores = equipmentMeta.getLore();
                 if (lores == null) {
                     MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.UNABLE_MAKE_MESSAGE);
@@ -75,14 +78,6 @@ public class MenuClickListener implements Listener {
                 }
                 ItemStack successItemStack;
                 successItemStack = inventory.getItem(MenuUtil.getEquipmentSlot());
-//                successItemStack.setAmount(1);
-//                equipmentItemStack.setAmount(equipmentItemStack.getAmount() - 1);
-//                inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
-//                if (inventory.getItem(MenuUtil.getEquipmentSlot()) == null) {
-//                    inventory.setItem(MenuUtil.getEquipmentSlot(), new ItemStack(Material.AIR));
-//                } else {
-//                    inventory.setItem(MenuUtil.getEquipmentSlot(), equipmentItemStack);
-//                }
                 boolean isSuccess = Make.INSTANCE.isSuccess(equipmentMeta);
                 if (isSuccess) {
                     player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 0);
@@ -96,7 +91,6 @@ public class MenuClickListener implements Listener {
                 }
                 if (Make.INSTANCE.isBroadcast(equipmentMeta))
                     MessageSender.INSTANCE.serverBroadcast(player, equipmentMeta, isSuccess);
-//                successItemStack.setItemMeta(Make.INSTANCE.makeItem(player, equipmentItemStack.getItemMeta()));
                 boolean ok = false;
                 for (int i = 0; i < inventory.getSize(); i++) {
                     if (inventory.getItem(i) == null) {

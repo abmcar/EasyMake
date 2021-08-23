@@ -35,6 +35,10 @@ public class MakeData {
         return yamlConfiguration.getBoolean(nowLevel.toString() + ".Broadcast");
     }
 
+    public Integer getMaxMakeLevel() {
+        return (yamlConfiguration.getInt("MaxMakeLevel") == 0 ? 32 : yamlConfiguration.getInt("MaxMakeLevel"));
+    }
+
 //    public Boolean isBreak(Integer nowLevel) {
 //        return yamlConfiguration.getBoolean(nowLevel.toString() + ".Break");
 //    }

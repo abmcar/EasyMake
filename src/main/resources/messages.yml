@@ -1,6 +1,7 @@
 broadcastMessage: "§b§l玩家 <player> 强化 <item> §b§l<success> ！"
 successMessage: "§e打造成功"
 failureMessage: "§c打造失败"
+maxMakeLevel: "§c打造上限"
 lackMaterialMessage: "§c缺少打造材料"
 unableMakeMessage: "§c不可打造"
 lackEquipmentMessage: "§4请放置打造的装备/图纸"

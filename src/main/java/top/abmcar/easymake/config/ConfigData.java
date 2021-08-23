@@ -11,8 +11,6 @@ public class ConfigData {
     private ConfigData() {}
 
     private YamlConfiguration config = ConfigUtil.loadYaml(EasyMake.getPlugin(), "config.yml");
-    //菜单布局
-    public List<String> MENU_SLOTS = config.getStringList("Menu.Slots");
 
     public YamlConfiguration getConfigYaml() {
         return config;
@@ -22,15 +20,15 @@ public class ConfigData {
         this.config = config;
     }
 
-    //最大改造等级
-    public Integer MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
+    //菜单布局
+    public List<String> MENU_SLOTS = config.getStringList("Menu.Slots");
     //默认打造数据文件名
     public String COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
     //菜单名字
     public String MENU_NAME = config.getString("Menu.Title");
 
     public void reload() {
-        MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
+//        MAX_MAKE_LEVEL = config.getInt("MaxMakeLevel");
         COMMON_MAKE_DATA_NAME = config.getString("commonMakeDataName");
         MENU_NAME = config.getString("Menu.Title");
         MENU_SLOTS = config.getStringList("Menu.Slots");
@@ -43,7 +41,6 @@ public class ConfigData {
         SUCCESS_RATE_KEYWORD = config.getString("KeyWord.SuccessRate");
         BREAK_KEYWORD = config.getString("KeyWord.Break");
     }
-
     //菜单边框名字
     public String MENU_GLASS_NAME = config.getString("Menu.GlassName");
     //玻璃边框名字
@@ -60,4 +57,5 @@ public class ConfigData {
     public String SUCCESS_RATE_KEYWORD = config.getString("KeyWord.SuccessRate");
     //损坏关键字
     public String BREAK_KEYWORD = config.getString("KeyWord.Break");
+
 }

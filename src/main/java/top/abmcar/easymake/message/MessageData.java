@@ -22,4 +22,6 @@ public class MessageData {
     public String UNABLE_MAKE_MESSAGE = configuration.getString("unableMakeMessage");
     //缺货数值变化:物品
     public String LACK_EQUIPMENT_MESSAGE = configuration.getString("lackEquipmentMessage");
+    //打造上限
+    public String MAX_MAKE_LEVEL = configuration.getString("maxMakeLevel");
 }
