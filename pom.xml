@@ -71,14 +71,14 @@
             <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>top.abmcar</groupId>-->
-        <!--            <artifactId>EasyVar</artifactId>-->
-        <!--            <version>1.2.2-SNAPSHOT</version>-->
-        <!--            <scope>system</scope>-->
-        <!--            <systemPath>${project.basedir}/src/main/resources/lib/EasyVar-1.2.2-SNAPSHOT.jar</systemPath>-->
-        <!--&lt;!&ndash;            <scope>provided</scope>&ndash;&gt;-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>top.abmcar</groupId>
+            <artifactId>EasyVar</artifactId>
+            <version>1.2.3-SNAPSHOT</version>
+            <scope>provided</scope>
+            <!--                    <scope>system</scope>-->
+            <!--                    <systemPath>${project.basedir}/src/main/resources/lib/EasyVar-1.2.2-SNAPSHOT.jar</systemPath>-->
+        </dependency>
     </dependencies>
 
 </project>

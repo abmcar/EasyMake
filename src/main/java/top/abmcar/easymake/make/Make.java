@@ -1,7 +1,9 @@
 package top.abmcar.easymake.make;
 
 import org.bukkit.inventory.meta.ItemMeta;
+import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.util.EasyStringUtil;
+import top.abmcar.easyvar.EasyVar;
 
 import java.util.List;
 import java.util.Random;
@@ -14,6 +16,13 @@ public class Make {
         Random random = new Random();
         int randomInt = random.nextInt(100);
         return randomInt < successRate;
+    }
+
+    public boolean isSuccess(ItemMeta itemMeta, String playerName) {
+        int successRate = EasyStringUtil.getSuccessRate(itemMeta);
+        Random random = new Random();
+        int randomInt = random.nextInt(100);
+        return randomInt < successRate + EasyVar.getVarManager().getPlayerValue(playerName, ConfigData.INSTANCE.LUCK_VALUE_KEYWORD);
     }
 
     public boolean isBroadcast(ItemMeta itemMeta) {
@@ -50,6 +59,4 @@ public class Make {
         itemMeta = getNewItemMeta(itemMeta);
         return itemMeta;
     }
-
-//    public
 }

@@ -13,6 +13,7 @@ import top.abmcar.easymake.util.MenuUtil;
 
 public final class EasyMake extends JavaPlugin {
     private static Plugin plugin;
+    public static Plugin EasyVar = Bukkit.getPluginManager().getPlugin("EasyVar");
     private Config config;
 
     public static void reload() {
@@ -40,21 +41,11 @@ public final class EasyMake extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-//        ConfigUtil.saveFile(config);
-    }
-
-    public static Plugin getPlugin() {
-        return plugin;
-    }
-
-    @Override
     public void onEnable() {
         // Plugin startup logic
         plugin = this;
         try {
-            config = ConfigUtil.loadConfig(plugin, "config.yml");
+            this.config = ConfigUtil.loadConfig(plugin, "config.yml");
             if (ConfigData.INSTANCE.MENU_SLOTS.isEmpty())
                 plugin.saveResource("config.yml", true);
             MenuUtil.loadMenuSlots();
@@ -69,8 +60,22 @@ public final class EasyMake extends JavaPlugin {
         } catch (Exception e) {
             plugin.getLogger().info("菜单布局载入失败！请尝试删除插件数据文件夹后重试！");
         }
+        if (EasyVar != null)
+            getLogger().info("EasyVar √");
+        else
+            getLogger().info("EasyVar ×");
         getCommand("easymake").setExecutor(new EasyMakeCommand());
         Bukkit.getPluginManager().registerEvents(new MenuClickListener(), this);
+    }
+
+    public static Plugin getPlugin() {
+        return plugin;
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+        ConfigUtil.saveFile(config);
     }
 
 }
