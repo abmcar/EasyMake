@@ -1,4 +1,5 @@
 top\abmcar\easymake\command\EasyMakeCommand.class
+top\abmcar\easymake\util\CalUtil.class
 top\abmcar\easymake\config\ConfigData.class
 top\abmcar\easymake\message\MessageData.class
 top\abmcar\easymake\message\MessageSender.class

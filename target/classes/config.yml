@@ -31,4 +31,4 @@ KeyWord:
   #  装备损坏关键字
   Break: "装备损坏"
   #  幸运值关键字
-  LuckValue : "LuckValue"
+  LuckValue: "LuckValue"

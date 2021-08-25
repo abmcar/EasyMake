@@ -1,10 +1,18 @@
 #打造等级上限
 MaxMakeLevel: 20
+usingCalculation: true
+calRule1: "<nowLevel>"
+calRule2: "<nowLevel>*2"
+calRule3: "<nowLevel>+2*5^2/5"
+calRules:
+  - calRule1
+  - calRule2
+  - calRule3
 #0为打造等级
 0:
   #  所需材料
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 1"
+    - "§a §7所需材料:矛盾的结晶体 * calRule1"
   #  数值变化
   AddValue:
     - "§a §7数值变化:物理伤害 + 1"
@@ -14,28 +22,28 @@ MaxMakeLevel: 20
   Broadcast: false
 1:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 1"
+    - "§a §7所需材料:矛盾的结晶体 * calRule1"
   AddValue:
     - "§a §7数值变化:物理伤害 + 1"
   SuccessRate: 100
   Broadcast: false
 2:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 2"
+    - "§a §7所需材料:矛盾的结晶体 * calRule1"
   AddValue:
     - "§a §7数值变化:物理伤害 + 1"
   SuccessRate: 90
   Broadcast: false
 3:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 3"
+    - "§a §7所需材料:矛盾的结晶体 * calRule1"
   AddValue:
     - "§a §7数值变化:物理伤害 + 2"
   SuccessRate: 81
   Broadcast: false
 4:
   MaterialRequire:
-    - "§a §7所需材料:矛盾的结晶体 * 4"
+    - "§a §7所需材料:矛盾的结晶体 * calRule1"
   AddValue:
     - "§a §7数值变化:物理伤害 + 2"
   SuccessRate: 73

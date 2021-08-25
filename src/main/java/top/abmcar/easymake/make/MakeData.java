@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import top.abmcar.easymake.config.Config;
 import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.config.ConfigUtil;
+import top.abmcar.easymake.util.CalUtil;
 
 import java.util.List;
 
@@ -19,16 +20,34 @@ public class MakeData {
         yamlConfiguration = config.getConfigYaml();
     }
 
+    public List<String> getCalRules() {
+        return yamlConfiguration.getStringList("calRules");
+    }
+
+    public List<String> replaceCalRule(List<String> strings, Integer nowLevel) {
+        List<String> rules = getCalRules();
+        for (String lore : strings) {
+            for (String nowRule : rules) {
+                if (lore.contains(nowRule)) {
+                    String tempString = lore;
+                    lore = lore.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel));
+                    strings.set(strings.indexOf(tempString), lore);
+                }
+            }
+        }
+        return strings;
+    }
+
     public List<String> getMaterialRequireList(Integer nowLevel) {
-        return yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire");
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire"), nowLevel);
     }
 
     public List<String> getAddValueList(Integer nowLevel) {
-        return yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue");
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel);
     }
 
     public String getSuccessRate(Integer nowLevel) {
-        return yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate");
+        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
     }
 
     public Boolean isBroadcast(Integer nowLevel) {
