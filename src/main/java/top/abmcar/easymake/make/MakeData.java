@@ -24,6 +24,10 @@ public class MakeData {
         return yamlConfiguration.getStringList("calRules");
     }
 
+    public List<String> getVars() {
+        return yamlConfiguration.getStringList("Vars");
+    }
+
     public List<String> replaceCalRule(List<String> strings, Integer nowLevel) {
         List<String> rules = getCalRules();
         for (String lore : strings) {
@@ -31,6 +35,20 @@ public class MakeData {
                 if (lore.contains(nowRule)) {
                     String tempString = lore;
                     lore = lore.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel));
+                    strings.set(strings.indexOf(tempString), lore);
+                }
+            }
+        }
+        return strings;
+    }
+
+    public List<String> replaceCalRule(List<String> strings, Integer nowLevel, String playerName, List<String> vars) {
+        List<String> rules = getCalRules();
+        for (String lore : strings) {
+            for (String nowRule : rules) {
+                if (lore.contains(nowRule)) {
+                    String tempString = lore;
+                    lore = lore.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel, playerName, vars));
                     strings.set(strings.indexOf(tempString), lore);
                 }
             }
@@ -47,6 +65,18 @@ public class MakeData {
     }
 
     public String getSuccessRate(Integer nowLevel) {
+        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
+    }
+
+    public List<String> getMaterialRequireList(Integer nowLevel, String playerName) {
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire"), nowLevel, playerName, getVars());
+    }
+
+    public List<String> getAddValueList(Integer nowLevel, String playerName) {
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel);
+    }
+
+    public String getSuccessRate(Integer nowLevel, String playerName) {
         return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
     }
 

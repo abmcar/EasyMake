@@ -54,7 +54,7 @@ public class ConfigUtil {
         File pluginDataFolder = plugin.getDataFolder();
         File makeDataFolder = new File(pluginDataFolder, "makeData");
         File makeDataFile = new File(makeDataFolder, itemName + ".yml");
-        if (itemName.equalsIgnoreCase(ConfigData.INSTANCE.COMMON_MAKE_DATA_NAME))
+        if (itemName.equalsIgnoreCase(ConfigData.INSTANCE.COMMON_MAKE_DATA_NAME) && !makeDataFile.exists())
             plugin.saveResource("makeData\\" + itemName + ".yml", true);
         return new Config(makeDataFolder, makeDataFile, YamlConfiguration.loadConfiguration(makeDataFile));
     }

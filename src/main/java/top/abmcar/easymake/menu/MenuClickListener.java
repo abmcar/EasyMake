@@ -89,7 +89,7 @@ public class MenuClickListener implements Listener {
                 isSuccess = Make.INSTANCE.isSuccess(equipmentMeta, player.getName());
             if (isSuccess) {
                 player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 0);
-                successItemStack.setItemMeta(Make.INSTANCE.makeItem(equipmentMeta));
+                successItemStack.setItemMeta(Make.INSTANCE.makeItem(equipmentMeta, player.getName()));
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.SUCCESS_MESSAGE);
             } else {
                 player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_BREAK, 1, 0);
