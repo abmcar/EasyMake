@@ -14,6 +14,7 @@ import top.abmcar.easymake.util.MenuUtil;
 public final class EasyMake extends JavaPlugin {
     private static Plugin plugin;
     public static Plugin EasyVar = Bukkit.getPluginManager().getPlugin("EasyVar");
+    public static Plugin PlaceholderAPI = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
     private Config config;
 
     public static void reload() {

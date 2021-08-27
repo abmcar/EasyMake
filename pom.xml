@@ -6,7 +6,7 @@
 
     <groupId>top.abmcar</groupId>
     <artifactId>EasyMake</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.2.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>EasyMake</name>
@@ -71,6 +71,12 @@
             <version>1.12.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>me.clip</groupId>-->
+        <!--            <artifactId>placeholderapi</artifactId>-->
+        <!--            <version>2.9.2</version>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>top.abmcar</groupId>
             <artifactId>EasyVar</artifactId>

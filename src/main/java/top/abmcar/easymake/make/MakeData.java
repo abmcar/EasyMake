@@ -49,6 +49,7 @@ public class MakeData {
                 if (lore.contains(nowRule)) {
                     String tempString = lore;
                     lore = lore.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel, playerName, vars));
+//                    lore = lore
                     strings.set(strings.indexOf(tempString), lore);
                 }
             }
@@ -73,11 +74,11 @@ public class MakeData {
     }
 
     public List<String> getAddValueList(Integer nowLevel, String playerName) {
-        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel);
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel, playerName, getVars());
     }
 
     public String getSuccessRate(Integer nowLevel, String playerName) {
-        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
+        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel, playerName, getVars());
     }
 
     public Boolean isBroadcast(Integer nowLevel) {
