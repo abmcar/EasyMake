@@ -1,6 +1,9 @@
 package top.abmcar.easymake.make;
 
+import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import top.abmcar.easymake.EasyMake;
 import top.abmcar.easymake.config.Config;
 import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.config.ConfigUtil;
@@ -34,6 +37,7 @@ public class MakeData {
             for (String nowRule : rules) {
                 if (lore.contains(nowRule)) {
                     String tempString = lore;
+//                    lore = PlaceholderAPI.setPlaceholders()
                     lore = lore.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel));
                     strings.set(strings.indexOf(tempString), lore);
                 }
@@ -45,6 +49,10 @@ public class MakeData {
     public List<String> replaceCalRule(List<String> strings, Integer nowLevel, String playerName, List<String> vars) {
         List<String> rules = getCalRules();
         for (String lore : strings) {
+            String oriString = lore;
+            if (EasyMake.PlaceholderAPI != null)
+                lore = PlaceholderAPI.setPlaceholders(Bukkit.getPlayer(playerName), lore);
+            strings.set(strings.indexOf(oriString), lore);
             for (String nowRule : rules) {
                 if (lore.contains(nowRule)) {
                     String tempString = lore;
