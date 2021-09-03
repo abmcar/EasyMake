@@ -29,7 +29,7 @@ public class ConfigUtil {
                 if (!configName.equalsIgnoreCase("config.yml"))
                     configFile.createNewFile();
                 else
-                    plugin.saveResource(configName, true);
+                    plugin.saveResource(configName, false);
             } catch (Exception e) {
                 plugin.getLogger().info("创建" + configFile + "文件失败");
                 plugin.getLogger().info(e.toString());
