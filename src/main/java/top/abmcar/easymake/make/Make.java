@@ -1,5 +1,6 @@
 package top.abmcar.easymake.make;
 
+import org.bukkit.Material;
 import org.bukkit.inventory.meta.ItemMeta;
 import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.util.EasyStringUtil;
@@ -31,40 +32,33 @@ public class Make {
         return nowData.isBroadcast(nowLevel);
     }
 
-//    public ItemMeta getNewItemMeta(ItemMeta itemMeta) {
-//        MakeData nowData = new MakeData(EasyStringUtil.getSimpleDisplayName(itemMeta));
-//        int nowLevel = EasyStringUtil.getMakeLevel(itemMeta);
-//        List<String> addValueList = nowData.getAddValueList(nowLevel);
-//        List<String> materialRequiredList = nowData.getMaterialRequireList(nowLevel);
-//        String successRate = nowData.getSuccessRate(nowLevel);
-//        itemMeta.setLore(EasyStringUtil.getAttributeLores(itemMeta));
-//        itemMeta.setLore(EasyStringUtil.replaceAddValue(itemMeta, addValueList));
-//        itemMeta.setLore(EasyStringUtil.replaceMaterialRequire(itemMeta, materialRequiredList));
-//        itemMeta.setLore(EasyStringUtil.replaceSuccessRate(itemMeta, successRate));
-//        itemMeta.setDisplayName(EasyStringUtil.getNewDisplayName(itemMeta));
-//        return itemMeta;
-//    }
-
     public ItemMeta getNewItemMeta(ItemMeta itemMeta, String playerName) {
         MakeData nowData = new MakeData(EasyStringUtil.getSimpleDisplayName(itemMeta));
         int nowLevel = EasyStringUtil.getMakeLevel(itemMeta);
-//        List<String> addValueList = nowData.getAddValueList(nowLevel);
-//        List<String> materialRequiredList = nowData.getMaterialRequireList(nowLevel);
-//        String successRate = nowData.getSuccessRate(nowLevel);
         List<String> addValueList = nowData.getAddValueList(nowLevel, playerName);
         List<String> materialRequiredList = nowData.getMaterialRequireList(nowLevel, playerName);
         String successRate = nowData.getSuccessRate(nowLevel, playerName);
-//        if (EasyMake.EasyVar != null) {
-//            addValueList = nowData.getAddValueList(nowLevel, playerName);
-//            materialRequiredList = nowData.getMaterialRequireList(nowLevel, playerName);
-//            successRate = nowData.getSuccessRate(nowLevel, playerName);
-//        }
         itemMeta.setLore(EasyStringUtil.getAttributeLores(itemMeta));
         itemMeta.setLore(EasyStringUtil.replaceAddValue(itemMeta, addValueList));
         itemMeta.setLore(EasyStringUtil.replaceMaterialRequire(itemMeta, materialRequiredList));
         itemMeta.setLore(EasyStringUtil.replaceSuccessRate(itemMeta, successRate));
         itemMeta.setDisplayName(EasyStringUtil.getNewDisplayName(itemMeta));
+        if (nowData.getNewLores(nowLevel, playerName) != null && !nowData.getNewLores(nowLevel, playerName).isEmpty())
+            itemMeta.setLore(nowData.getNewLores(nowLevel, playerName));
+        if (!nowData.getNewDisplayName(nowLevel, playerName).equalsIgnoreCase("Null"))
+            itemMeta.setDisplayName(nowData.getNewDisplayName(nowLevel, playerName));
         return itemMeta;
+    }
+
+    public Material getNewMaterial(ItemMeta itemMeta, Material defaultMaterial) {
+        MakeData nowData = new MakeData(EasyStringUtil.getSimpleDisplayName(itemMeta));
+        int nowLevel = EasyStringUtil.getMakeLevel(itemMeta);
+//        Material.getMaterial();
+
+        if (nowData.getNewMaterialName(nowLevel).equalsIgnoreCase("Null"))
+            return defaultMaterial;
+        else
+            return Material.getMaterial(nowData.getNewMaterialName(nowLevel));
     }
 
     public Boolean canMake(ItemMeta itemMeta) {

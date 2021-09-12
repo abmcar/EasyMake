@@ -29,6 +29,7 @@ public class MenuClickListener implements Listener {
     public void onPlayerClickInv(InventoryClickEvent event) {
         MenuUtil.setInventoryClickEvent(event);
         Player player = (Player) event.getWhoClicked();
+//        EasyMake.getPlugin().getLogger().info(player.getInventory().getItem(0).getType().toString());
         Inventory inventory = event.getView().getTopInventory();
         if (!MenuUtil.isMakeInventory())
             return;
@@ -84,22 +85,24 @@ public class MenuClickListener implements Listener {
             //判断结束，开始打造
             ItemStack successItemStack;
             successItemStack = inventory.getItem(MenuUtil.getEquipmentSlot());
+            successItemStack.setType(Make.INSTANCE.getNewMaterial(successItemStack.getItemMeta(), successItemStack.getType()));
+            successItemStack.setAmount(1);
             boolean isSuccess = Make.INSTANCE.isSuccess(equipmentMeta);
             if (EasyMake.EasyVar != null)
                 isSuccess = Make.INSTANCE.isSuccess(equipmentMeta, player.getName());
             if (isSuccess) {
-                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_USE, 1, 0);
+                player.playSound(player.getLocation(), Sound.valueOf(ConfigData.INSTANCE.MENU_SUCCESS_SOUND), 1, 0);
+//                successItemStack.setType();
                 successItemStack.setItemMeta(Make.INSTANCE.makeItem(equipmentMeta, player.getName()));
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.SUCCESS_MESSAGE);
             } else {
-                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_BREAK, 1, 0);
+                player.playSound(player.getLocation(), Sound.valueOf(ConfigData.INSTANCE.MENU_FAIL_SOUND), 1, 0);
                 MessageSender.INSTANCE.sendMessage(player, MessageData.INSTANCE.FAILURE_MESSAGE);
                 if (EasyStringUtil.canBreak(equipmentMeta))
                     successItemStack = new ItemStack(Material.AIR);
             }
             if (Make.INSTANCE.isBroadcast(equipmentMeta))
                 MessageSender.INSTANCE.serverBroadcast(player, equipmentMeta, isSuccess);
-
             //打造结束，返回物品
             boolean ok = false;
             for (int i = 0; i < inventory.getSize(); i++) {

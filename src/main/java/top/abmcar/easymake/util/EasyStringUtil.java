@@ -63,6 +63,8 @@ public class EasyStringUtil {
     }
 
     public static Boolean isRequired(ItemMeta itemMeta, String keyWord) {
+        if (itemMeta.getDisplayName().contains(keyWord))
+            return true;
         List<String> nowLores = itemMeta.getLore();
         if (nowLores != null)
             for (String nowLore : nowLores) {

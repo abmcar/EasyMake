@@ -18,6 +18,14 @@ Menu:
   GlassPaneName: "玻璃框内放装备/图纸"
   #  打造按钮名字
   MakeButtonName: "打造"
+  #  玻璃(*) 材质名
+  Material0: 'GLASS'
+  #  玻璃框(-) 材质名
+  Material1: 'STAINED_GLASS_PANE'
+  #  打造按钮(2) 材质名
+  Material2: 'ANVIL'
+  FailSound: 'BLOCK_ANVIL_BREAK'
+  SuccessSound: 'BLOCK_ANVIL_USE'
 #  关键字
 KeyWord:
   #  打造关键字

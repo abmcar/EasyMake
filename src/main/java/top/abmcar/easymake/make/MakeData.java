@@ -65,17 +65,41 @@ public class MakeData {
         return strings;
     }
 
-    public List<String> getMaterialRequireList(Integer nowLevel) {
-        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire"), nowLevel);
+    public String replaceCalRule(String string, Integer nowLevel, String playerName, List<String> vars) {
+        List<String> rules = getCalRules();
+        for (String nowRule : rules) {
+            if (string.contains(nowRule)) {
+                String tempString = string;
+                string = string.replace(nowRule, CalUtil.getCalAns(yamlConfiguration.getString(nowRule, "<nowLevel>"), nowLevel, playerName, vars));
+            }
+        }
+        return string;
     }
 
-    public List<String> getAddValueList(Integer nowLevel) {
-        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel);
+    public String getNewMaterialName(Integer nowLevel) {
+        return yamlConfiguration.getString(nowLevel.toString() + ".NewMaterialName", "Null");
     }
 
-    public String getSuccessRate(Integer nowLevel) {
-        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
+    public String getNewDisplayName(Integer nowLevel, String playerName) {
+//        return yamlConfiguration.getString(nowLevel.toString() + ".NewDisplayName", "Null");
+        return replaceCalRule(yamlConfiguration.getString(nowLevel.toString() + ".NewDisplayName", "Null"), nowLevel, playerName, getVars());
     }
+
+    public List<String> getNewLores(Integer nowLevel, String playerName) {
+        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".NewLores"), nowLevel, playerName, getVars());
+    }
+
+//    public List<String> getMaterialRequireList(Integer nowLevel) {
+//        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire"), nowLevel);
+//    }
+//
+//    public List<String> getAddValueList(Integer nowLevel) {
+//        return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".AddValue"), nowLevel);
+//    }
+//
+//    public String getSuccessRate(Integer nowLevel) {
+//        return CalUtil.getCalAns(yamlConfiguration.getString(nowLevel.toString() + ".SuccessRate"), nowLevel);
+//    }
 
     public List<String> getMaterialRequireList(Integer nowLevel, String playerName) {
         return replaceCalRule(yamlConfiguration.getStringList(nowLevel.toString() + ".MaterialRequire"), nowLevel, playerName, getVars());

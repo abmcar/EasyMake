@@ -1,5 +1,5 @@
 name: EasyMake
-version: 1.2.2-SNAPSHOT
+version: 1.3.0-SNAPSHOT
 main: top.abmcar.easymake.EasyMake
 authors: [ abmcar ]
 softdepend: [ EasyVar ]

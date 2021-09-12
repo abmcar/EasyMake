@@ -16,23 +16,28 @@ public class MenuItem {
         setGlassPane();
     }
 
+    public void reload() {
+        setNormalGlass();
+        setMakeButton();
+        setGlassPane();
+    }
+
     private void setNormalGlass() {
-        normalGlass = new ItemStack(Material.GLASS);
+        normalGlass = new ItemStack(Material.getMaterial(ConfigData.INSTANCE.MENU_MATERIAL0));
         ItemMeta itemMeta = normalGlass.getItemMeta();
         itemMeta.setDisplayName(ConfigData.INSTANCE.MENU_GLASS_NAME);
         normalGlass.setItemMeta(itemMeta);
     }
 
-    private void setMakeButton()
-    {
-        makeButton = new ItemStack(Material.ANVIL);
+    private void setMakeButton() {
+        makeButton = new ItemStack(Material.getMaterial(ConfigData.INSTANCE.MENU_MATERIAL2));
         ItemMeta itemMeta = makeButton.getItemMeta();
         itemMeta.setDisplayName(ConfigData.INSTANCE.MENU_MAKE_BUTTON_NAME);
     }
 
     private void setGlassPane()
     {
-        glassPane = new ItemStack(Material.STAINED_GLASS_PANE);
+        glassPane = new ItemStack(Material.getMaterial(ConfigData.INSTANCE.MENU_MATERIAL1));
         ItemMeta itemMeta = glassPane.getItemMeta();
         itemMeta.setDisplayName(ConfigData.INSTANCE.MENU_GLASS_PANE_NAME);
         glassPane.setItemMeta(itemMeta);

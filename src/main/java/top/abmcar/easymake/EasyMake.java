@@ -9,6 +9,7 @@ import top.abmcar.easymake.config.ConfigData;
 import top.abmcar.easymake.config.ConfigUtil;
 import top.abmcar.easymake.make.MakeData;
 import top.abmcar.easymake.menu.MenuClickListener;
+import top.abmcar.easymake.menu.MenuItem;
 import top.abmcar.easymake.util.MenuUtil;
 
 public final class EasyMake extends JavaPlugin {
@@ -25,6 +26,7 @@ public final class EasyMake extends JavaPlugin {
                 if (ConfigData.INSTANCE.MENU_SLOTS.isEmpty())
                     plugin.saveResource("config.yml", true);
                 MenuUtil.loadMenuSlots();
+                MenuItem.INSTANCE.reload();
                 plugin.getLogger().info("插件配置载入成功！");
             } catch (Exception e) {
                 plugin.saveResource("config.yml", true);
