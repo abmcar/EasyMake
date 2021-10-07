@@ -83,9 +83,8 @@ public class MenuClickListener implements Listener {
             }
 
             //判断结束，开始打造
-            ItemStack successItemStack;
-            successItemStack = inventory.getItem(MenuUtil.getEquipmentSlot());
-            successItemStack.setType(Make.INSTANCE.getNewMaterial(successItemStack.getItemMeta(), successItemStack.getType()));
+            ItemStack successItemStack = new ItemStack(Make.INSTANCE.getNewMaterial(equipmentMeta, equipmentItemStack.getType()));
+            successItemStack.setItemMeta(equipmentMeta);
             successItemStack.setAmount(1);
             boolean isSuccess = Make.INSTANCE.isSuccess(equipmentMeta);
             if (EasyMake.EasyVar != null)

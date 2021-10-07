@@ -1,5 +1,6 @@
 package top.abmcar.easymake.util;
 
+import top.abmcar.easymake.EasyMake;
 import top.abmcar.easyvar.EasyVar;
 
 import java.util.List;
@@ -34,8 +35,9 @@ public class CalUtil {
 
     public static String getCalAns(String oriString, Integer nowLevel, String playerName, List<String> vars) {
         oriString = oriString.replace("<nowLevel>", nowLevel.toString());
-        for (String nowVar : vars)
-            oriString = oriString.replace(nowVar, EasyVar.getVarManager().getPlayerValue(playerName, nowVar).toString());
+        if (EasyMake.EasyVar != null)
+            for (String nowVar : vars)
+                oriString = oriString.replace(nowVar, EasyVar.getVarManager().getPlayerValue(playerName, nowVar).toString());
         oriString = oriString + '#';
         StringBuilder nowNum = new StringBuilder();
         int ans = 0;
