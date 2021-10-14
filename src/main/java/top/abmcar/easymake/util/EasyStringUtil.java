@@ -156,6 +156,10 @@ public class EasyStringUtil {
     }
 
     private static String getSimpleString(String string) {
+        if (string == null)
+            return "Null";
+        if (string.isEmpty())
+            return "Null";
         string = string.replace(" ", "");
         string = string.replace("§1", "");
         string = string.replace("§2", "");
